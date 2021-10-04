@@ -8,6 +8,7 @@
   margin: 0;
   padding: 0;
 }
+
 /* Landing Page */
 
 body {
@@ -28,6 +29,8 @@ p {
 
 img {
   padding-right: 1rem;
+  width: auto;
+  height: auto;
 }
 
 .topnav {
@@ -36,6 +39,8 @@ img {
 }
 .header-logo {
     float: left;
+    width: auto;
+    height: auto;
 }
 .main-navbar {
     float: right;
@@ -186,6 +191,19 @@ main {
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
+}
+
+/*messages d'erreur*/
+.error {
+  font-size: 17px;
+  color: red;
+  display: none;
+}
+
+/*message de confirmation quand envoi réussi*/
+.confirmation_envoi {
+  text-align: center;
+  display: none;
 }
 
 label {
