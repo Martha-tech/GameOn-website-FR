@@ -45,8 +45,8 @@ var error_emailAddress = document.querySelector(".error_email");
 var error_birthdate = document.querySelector(".error_birthdate");
 var error_quantity = document.querySelector(".error_quantity");
 var error_town = document.querySelector(".error_town");
-var error_conditions = document.querySelector(".error_conditions");*/
-
+var error_conditions = document.querySelector(".error_conditions");
+*/
 
 
 function form_check() {
@@ -98,10 +98,35 @@ function form_check() {
   }
 
 
+  function ValidateBirthdate(birthdate) {
+    console.log(birthdate);
+    var error_birthdate = document.querySelector(".error_birthdate");
+    var regexVar = /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/;
+    var regexVarTest = regexVar.test(birthdate);
+    var userBirthDate = new Date(birthdate);
+
+    var todayYear = (new Date()).getFullYear();
+    var cutOff18 = new Date();
+    cutOff18.setFullYear(todayYear - 18); 
+    var result = false;
+
+    if (!regexVarTest) {
+      error_birthdate.innerHTML = "Veuillez entrer votre date de naissance au format jj/mm/aaaa.";
+    } else if (isNaN(userBirthDate)) {
+      error_birthdate.innerHTML = "Date de naissance invalide. Veuillez vérifier votre année de naissance.";
+    } else if (userBirthDate > cutOff18) {
+      error_birthdate.innerHTML = "Vous devez avoir plus de 18 ans.";
+    } else {
+      error_birthdate.innerHTML = "";
+      result = true;
+    }
+    return result;
+  }
+
   let birthDate = document.getElementById("birthdate");
   let error_birthdate = document.querySelector(".error_birthdate");
 
-  if (birthDate.value) {
+  if (ValidateBirthdate(birthDate.value)) {
     console.log("Birthdate is valid.");
     error_birthdate.style.display = "none";
   } else {
@@ -122,22 +147,22 @@ function form_check() {
     error_quantity.style.display = "block";
     valeur = false;
   }
+
+
+  let conditions = document.getElementById("checkbox1");
+  let error_conditions = document.querySelector(".error_conditions");
+  
+  
+  if (conditions.checked) {
+    console.log("Conditions are valid.");
+    error_conditions.style.display = "none";
+  } else {
+    console.log("Conditions are invalid.");
+    error_conditions.style.display = "block";
+    valeur = false;
+  }
+
   return valeur;
-}
-
-let conditions = document.getElementById("checkbox1");
-let error_conditions = document.querySelector(".error_conditions");
-
-function isChecked(elem) {
-  return document.getElementById(elem).checked == true;
-}
-
-if (isChecked("checkbox1") == true) {
-  console.log("Conditions are valid.");
-  error_conditions.style.display = "none";
-} else {
-  console.log("Conditions are invalid.");
-  error_conditions.style.display = "block";
 }
 
 
@@ -146,15 +171,27 @@ var form_submit = document.querySelector(".btn-submit");
 form_submit.addEventListener("click", form_validate);
 
 function form_validate(e) {
-  var confirm_submit = document.getElementById("confirmation_envoi");
+  var confirm_submit = document.getElementById("confirm_submit");
   e.preventDefault();
 
-  
   if (form_check() == true) {
-    confirm_submit.style.display="block";
+    var formulaire = document.querySelector("form");
+    confirm_submit.style.display = "block";
+    formulaire.style.display = "none";
+
+    var fermer_btn = document.getElementById("submit2")
+    fermer_btn.style.display = "block";
+
+    fermer_btn.addEventListener("click", close_modale);
   }
 }
 
+// bouton "c'est parti" déclenchant l'ouverture de la modale de confirmation d'envoi de l'inscription
+
+if (form.click == true) {
+  console.log("Registration form has been sent.");
+  var confirm_submit = document.getElementById("confirm_submit");
+}
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");

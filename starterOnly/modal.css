@@ -195,7 +195,7 @@ main {
 
 /*messages d'erreur*/
 .error {
-  font-size: 17px;
+  font-size: 16px;
   color: red;
   display: none;
 }
@@ -204,6 +204,8 @@ main {
 .confirmation_envoi {
   text-align: center;
   display: none;
+  padding: 15px 8%;
+  margin: 15px auto;
 }
 
 label {
@@ -351,6 +353,22 @@ input[data-error]::after {
   cursor: pointer;
   border: 0;
 }
+
+#submit1 {
+  margin-bottom: 1rem;
+}
+
+#submit2 {
+  display: none;
+  margin-bottom: 3rem;
+}
+
+.confirmation_envoi p {
+  font-size: 30px;
+  margin-top: 15rem;
+  margin-bottom: 15rem;
+}
+
 /* custom select styles */
 .custom-select {
   position: relative;
