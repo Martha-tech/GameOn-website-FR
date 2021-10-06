@@ -16,7 +16,7 @@ var close_modale = function(e) {
 }
 close_btn.addEventListener("click", close_modale);
 
-// Implémentation des entrées du formulaire #2
+// Implémentation des entrées du formulaire #2 et ajout d'une validation ou de messages d'erreurs #3
 /*
 LORSQU'un champ du formulaire n'est pas bien rempli,
   faire apparaître la div <error_...> sous le champ.
@@ -32,7 +32,7 @@ LORSQUE l'ensemble des champs du formulaire ont bien été remplis,
 var lastname = document.getElementById("last");
 var emailAddress = document.getElementById("email");
 var birthDate = document.getElementById("birthdate");
-var quantity = document.getElementById("quantity");
+var tournamentsQuantity = document.getElementById("quantity");
 var town = document.querySelectorAll('input[name="location"]');
 var conditions = document.getElementById("checkbox1");
 var form_submit = document.getElementById("submit1");
@@ -43,13 +43,15 @@ var error_firstname = document.querySelector(".error_first");
 var error_lastname = document.querySelector(".error_last");
 var error_emailAddress = document.querySelector(".error_email");
 var error_birthdate = document.querySelector(".error_birthdate");
-var error_quantity = document.querySelector(".error_quantity");
+var error_tournamentsQuantity = document.querySelector(".error_quantity");
 var error_town = document.querySelector(".error_town");
 var error_conditions = document.querySelector(".error_conditions");
 */
-
-
+ 
+//Vérification du formulaire
 function form_check() {
+
+  //prenom
   let firstname = document.getElementById("first");
   let error_firstname = document.querySelector(".error_first");
   let valeur = true;
@@ -63,7 +65,7 @@ function form_check() {
     valeur = false;
   }
 
-
+  //nom
   let lastname = document.getElementById("last");
   let error_lastname = document.querySelector(".error_last");
 
@@ -76,7 +78,7 @@ function form_check() {
     valeur = false;
   }
 
-
+  //email
   let emailAddress = document.getElementById("email");
   let error_emailAddress = document.querySelector(".error_email");
 
@@ -97,7 +99,7 @@ function form_check() {
     valeur = false;
   }
 
-
+  //date de naissance
   function ValidateBirthdate(birthdate) {
     console.log(birthdate);
     var error_birthdate = document.querySelector(".error_birthdate");
@@ -135,20 +137,39 @@ function form_check() {
     valeur = false;
   }
 
+  //nombre de tournois
 
-  let quantity = document.getElementById("quantity");
-  let error_quantity = document.querySelector(".error_quantity");
+  function ValidateQuantity(quantity) {
+    let toNumber = parseInt(quantity, 10);
+    console.log(typeof quantity);
 
-  if (quantity.value >= 0 && quantity.value <= 10) {
+    var error_tournamentsQuantity = document.querySelector(".error_quantity");
+    var result = false;
+
+    if (isNaN(toNumber) || toNumber % 1 != 0 || quantity == null) {
+      error_tournamentsQuantity.style.display = "block";
+    } else {
+      error_tournamentsQuantity.style.display = "none";
+      result = true;
+    }
+    return result;
+  }
+
+  var tournamentsQuantity = document.getElementById("quantity");
+  var error_tournamentsQuantity = document.querySelector(".error_quantity");
+  var inputError = document.querySelector(".input_error");
+
+  if (ValidateQuantity(tournamentsQuantity.value)) {
     console.log("Number is valid.");
-    error_quantity.style.display = "none";
+    error_tournamentsQuantity.style.display = "none";
   } else {
     console.log("Number is invalid.");
-    error_quantity.style.display = "block";
+    error_tournamentsQuantity.style.display = "block";
+    inputError.style.border = "0.8px solid red"; /*ne fonctionne pas*/
     valeur = false;
   }
 
-
+  //conditions à remplir
   let conditions = document.getElementById("checkbox1");
   let error_conditions = document.querySelector(".error_conditions");
   
@@ -165,7 +186,7 @@ function form_check() {
   return valeur;
 }
 
-
+//Soumission du formulaire et validation
 
 var form_submit = document.querySelector(".btn-submit");
 form_submit.addEventListener("click", form_validate);
@@ -186,7 +207,7 @@ function form_validate(e) {
   }
 }
 
-// bouton "c'est parti" déclenchant l'ouverture de la modale de confirmation d'envoi de l'inscription
+//Bouton "c'est parti" déclenchant l'apparition de la div "confirmation d'envoi (de l'inscription)"
 
 if (form.click == true) {
   console.log("Registration form has been sent.");
