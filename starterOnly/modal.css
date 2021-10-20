@@ -31,6 +31,7 @@ img {
   padding-right: 1rem;
   width: auto;
   height: auto;
+  object-fit: cover;
 }
 
 .topnav {
@@ -53,7 +54,8 @@ img {
   padding: 12px 12px;
   margin: 5px;
   text-decoration: none;
-  font-size: 20px;
+  /*font-size: 20px;*/
+  font-size: 25px;
   font-family: Roboto, sans-serif;
 }
 
@@ -73,38 +75,7 @@ img {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
 
-@media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-}
-
-
-
- @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-    margin-top: -15px;
-  }
-} 
 
 main {
   font-size: 130%;
@@ -252,12 +223,13 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-/* 
+
 input[data-error]::after {
     content: attr(data-error);
     font-size: 0.4em;
     color: red;
-} */
+} 
+
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -483,11 +455,14 @@ label {
 }
 .hero-headline {
   font-size: 6rem;
+  margin-top: 1.5rem; /*ajout*/
   font-weight: normal;
-  white-space: nowrap;
+  white-space: normal; /*modification*/
+  width: 300%; /*modification*/
 }
 .hero-text {
-  width: 146%;
+  width: 130%; /*modification*/
+  font-size: 1.7rem; /*ajout*/
   font-weight: normal;
   margin-top: 57px;
   padding: 0;
@@ -495,10 +470,10 @@ label {
 .btn-signup {
   outline: none;
   text-transform: capitalize;
-  font-size: 1.3rem;
+  font-size: 1.5rem; /*modification*/
   padding: 15px 23px;
   margin: 0;
-  margin-top: 59px;
+  margin-top: 103px; /*modification*/
 }
 .hero-img {
   grid-column: span 8;
@@ -524,7 +499,27 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
-@media screen and (max-width: 800px) {
+
+@media screen and (min-width: 850px) and (max-width: 1000px) {
+  .header-logo {
+    margin-bottom: 1.5rem;
+  }
+  .hero-headline {
+    font-size: 6rem;
+    font-weight: normal;
+    white-space: normal;
+    width: 250%;
+  }
+  .hero-img {
+    object-fit: cover;
+  }
+  .copyrights {
+    margin-top: 50px;
+    text-align: center;
+  }
+} /*ajout*/
+
+@media screen and (max-width: 850px) {
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -541,16 +536,21 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
-    white-space: normal;
+    font-size: 4rem; /*modification*/
+    font-weight: 900; /*ajout*/
+    white-space: normal; /*modification*/
+    width: 100%; /*modification*/
   }
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    white-space: normal; /*modification*/
+    width: 100%;
   }
   .hero-img img {
     border-radius: 10px;
     margin-top: 40px;
+    object-fit: cover; /*ajout*/
   }
   .hero-section > .btn-signup {
     display: block;
@@ -561,7 +561,50 @@ footer {
     margin-top: 50px;
     text-align: center;
   }
+  .topnav a {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  .topnav.responsive {
+    position: relative;
+  }
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
 }
+  
+/*@media screen and (max-width: 540px) {*/
+@media screen and (min-width: 360px) and (max-width: 540px) {
+  .topnav a {
+    display: none;
+    font-size: 1rem;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+    margin-top: -15px;
+  }
+  .hero-headline {
+    font-size: 2rem; /*ajout*/
+  }
+  .hero-text {
+    font-size: 1rem;
+    width: 90%;
+  }
+  .btn-submit,
+  .btn-signup {
+    font-size: 1rem;
+} 
 
 @keyframes modalopen {
   from {
