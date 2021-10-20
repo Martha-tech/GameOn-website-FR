@@ -179,6 +179,7 @@ main {
   margin: 15px auto;
 }
 
+
 label {
   font-family: var(--font-default);
   font-size: 17px;
@@ -494,12 +495,15 @@ label {
 .hero-section > .btn-signup {
   display: none;
 }
+
 footer {
   padding-left: 2vw;
   padding-right: 2vw;
   margin: 0 20px;
 }
 
+
+/* Responsive design */
 @media screen and (min-width: 850px) and (max-width: 1000px) {
   .header-logo {
     margin-bottom: 1.5rem;
@@ -582,8 +586,7 @@ footer {
     text-align: left;
   }
 }
-  
-/*@media screen and (max-width: 540px) {*/
+
 @media screen and (min-width: 360px) and (max-width: 540px) {
   .topnav a {
     display: none;
@@ -599,11 +602,18 @@ footer {
   }
   .hero-text {
     font-size: 1rem;
-    width: 90%;
+    width: 80%;
   }
   .btn-submit,
   .btn-signup {
     font-size: 1rem;
+  }
+  footer p {
+    font-size: 0.7rem; /*ajout*/
+  }
+  .content {
+    margin: 18% auto 0 auto; /*rend visible le logo lors de l'affichage de la modale*/
+  }
 } 
 
 @keyframes modalopen {

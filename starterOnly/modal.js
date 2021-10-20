@@ -5,7 +5,6 @@ var editNav = function() {
   } else {
     x.className = "topnav";
   }
-
 }
 
 // Fermeture de la modale #1
@@ -16,8 +15,10 @@ var close_modale = function(e) {
 }
 close_btn.addEventListener("click", close_modale);
 
+
 // Implémentation des entrées du formulaire #2 
 // Ajout d'une validation ou de messages d'erreurs #3
+
 /*
 LORSQU'un champ du formulaire n'est pas bien rempli,
   faire apparaître la div <error_...> sous le champ.
@@ -202,18 +203,13 @@ function form_validate(e) {
     confirm_submit.style.display = "block";
     formulaire.style.display = "none";
 
-   let fermer_btn = document.getElementById("submit2")
+    let fermer_btn = document.getElementById("submit2")
     fermer_btn.style.display = "block";
 
     fermer_btn.addEventListener("click", close_modale);
   }
 }
 
-
-if (form.click == true) {
-  console.log("Registration form has been sent.");
-  //let confirm_submit = document.getElementById("confirm_submit");
-}
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
