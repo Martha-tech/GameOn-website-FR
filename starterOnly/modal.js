@@ -156,14 +156,11 @@ function form_check() {
     let toNumber = parseInt(quantity, 10);
     console.log(typeof quantity);
 
-    let error_tournamentsQuantity = document.querySelector(".error_quantity");
     let result ;
 
     if (isNaN(toNumber) || toNumber % 1 != 0 || quantity == null) {
-      error_tournamentsQuantity.style.display = "block";
       result = false;
     } else {
-      error_tournamentsQuantity.style.display = "none";
       result = true;
     }
     return result;
