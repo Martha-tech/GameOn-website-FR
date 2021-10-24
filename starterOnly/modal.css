@@ -171,6 +171,11 @@ main {
   display: none;
 }
 
+/*bordure des champs de saisie de texte dans le formulaire*/
+.input_error {
+  border: 1px solid black; 
+}
+
 /*message de confirmation quand envoi réussi*/
 .confirmation_envoi {
   text-align: center;
@@ -456,14 +461,14 @@ label {
 }
 .hero-headline {
   font-size: 6rem;
-  margin-top: 1.5rem; /*ajout*/
+  margin-top: 1.5rem;
   font-weight: normal;
-  white-space: normal; /*modification*/
-  width: 300%; /*modification*/
+  white-space: normal;
+  width: 300%; 
 }
 .hero-text {
-  width: 130%; /*modification*/
-  font-size: 1.7rem; /*ajout*/
+  width: 130%;
+  font-size: 1.7rem;
   font-weight: normal;
   margin-top: 57px;
   padding: 0;
@@ -471,10 +476,10 @@ label {
 .btn-signup {
   outline: none;
   text-transform: capitalize;
-  font-size: 1.5rem; /*modification*/
+  font-size: 1.5rem;
   padding: 15px 23px;
   margin: 0;
-  margin-top: 103px; /*modification*/
+  margin-top: 103px;
 }
 .hero-img {
   grid-column: span 8;
@@ -540,21 +545,21 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4rem; /*modification*/
-    font-weight: 900; /*ajout*/
-    white-space: normal; /*modification*/
-    width: 100%; /*modification*/
+    font-size: 4rem;
+    font-weight: 900;
+    white-space: normal;
+    width: 100%;
   }
   .hero-text {
     width: unset;
     font-size: 2rem;
-    white-space: normal; /*modification*/
+    white-space: normal;
     width: 100%;
   }
   .hero-img img {
     border-radius: 10px;
     margin-top: 40px;
-    object-fit: cover; /*ajout*/
+    object-fit: cover;
   }
   .hero-section > .btn-signup {
     display: block;
@@ -598,7 +603,7 @@ footer {
     margin-top: -15px;
   }
   .hero-headline {
-    font-size: 2rem; /*ajout*/
+    font-size: 2rem;
   }
   .hero-text {
     font-size: 1rem;
@@ -609,10 +614,10 @@ footer {
     font-size: 1rem;
   }
   footer p {
-    font-size: 0.7rem; /*ajout*/
+    font-size: 0.7rem;
   }
   .content {
-    margin: 18% auto 0 auto; /*rend visible le logo lors de l'affichage de la modale*/
+    margin: 18% auto 0 auto;
   }
 } 
 

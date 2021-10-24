@@ -1,5 +1,5 @@
-var editNav = function() {
-  var x = document.getElementById("myTopnav");
+let editNav = function() {
+  let x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
     x.className += " responsive";
   } else {
@@ -8,9 +8,17 @@ var editNav = function() {
 }
 
 // Fermeture de la modale #1
-var close_btn = document.getElementById("btn-close");
-var close_modale = function(e) {
-  var modale = document.getElementById("div-bground");
+
+/* Deux variables ont été déclarées : 
+      - "close_btn" (qui correspond au bouton supérieur "x" de fermeture de la modale)
+      - "close_modale" (qui ferme la modale).
+
+  "close_modale" est une fonction qui fait disparaître la modale, 
+  lorsqu'on clique sur le bouton "x". */
+
+let close_btn = document.getElementById("btn-close");
+let close_modale = function(e) {
+  let modale = document.getElementById("div-bground");
   modale.style.display = "none";
 }
 close_btn.addEventListener("click", close_modale);
@@ -31,36 +39,51 @@ LORSQUE l'ensemble des champs du formulaire ont bien été remplis,
 */
  
 // Vérification du formulaire
-function form_check() {
 
-  //prenom
+/* La fonction "form_check" vérifie tous les champs du formulaire. 
+    Une variable "valeur" est initialisée à "true". 
+    Lorsque le champ n'est pas renseigné ou est mal renseigné, 
+    la valeur "false" est assignée à cette variable.
+*/
+
+function form_check() {
+  let valeur = true;
+
+  // prénom -> au moins 2 caractères
   let firstname = document.getElementById("first");
   let error_firstname = document.querySelector(".error_first");
-  let valeur = true;
 
   if (firstname.value.length >= 2) {
     console.log("First name is valid.");
     error_firstname.style.display = "none";
+    console.log("Border is black.")
+    firstname.style.border = "1px solid black";
   } else {
     console.log("First name is invalid.");
     error_firstname.style.display = "block";
+    console.log("Border is red.")
+    firstname.style.border = "2px solid red";
     valeur = false;
   }
 
-  //nom
+  // nom -> au moins 2 caractères
   let lastname = document.getElementById("last");
   let error_lastname = document.querySelector(".error_last");
 
   if (lastname.value.length >= 2) {
     console.log("Last name is valid.");
-    error_lastname.style.display = "none"; 
+    error_lastname.style.display = "none";
+    console.log("Border is black.")
+    lastname.style.border = "1px solid black";
   } else {
     console.log("Last name is invalid.");
     error_lastname.style.display = "block";
+    console.log("Border is red.")
+    lastname.style.border = "2px solid red";
     valeur = false;
   }
 
-  //email
+  // email -> de la forme <nom>@<domaine>.<qqch>
   let emailAddress = document.getElementById("email");
   let error_emailAddress = document.querySelector(".error_email");
 
@@ -75,13 +98,18 @@ function form_check() {
   if (ValidateEmail(emailAddress.value)) {
     console.log("Email adress is valid.");
     error_emailAddress.style.display = "none";
+    console.log("Border is black.")
+    emailAddress.style.border = "1px solid black";
   } else {
     console.log("Email adress is invalid.");
     error_emailAddress.style.display = "block";
+    console.log("Border is red.")
+    emailAddress.style.border = "2px solid red";
+
     valeur = false;
   }
 
-  //date de naissance
+  // date de naissance -> le participant doit avoir au moins 18 ans
   function ValidateBirthdate(birthdate) {
     console.log(birthdate);
     let error_birthdate = document.querySelector(".error_birthdate");
@@ -113,22 +141,27 @@ function form_check() {
   if (ValidateBirthdate(birthDate.value)) {
     console.log("Birthdate is valid.");
     error_birthdate.style.display = "none";
+    console.log("Border is black.")
+    birthDate.style.border = "1px solid black";
   } else {
     console.log("Birthdate is invalid.");
     error_birthdate.style.display = "block";
+    console.log("Border is red.")
+    birthDate.style.border = "2px solid red";
     valeur = false;
   }
 
-  //nombre de tournois
+  // Nombre de tournois -> ce doit être un nombre entier et le champ ne peut pas être laissé vide
   function ValidateQuantity(quantity) {
     let toNumber = parseInt(quantity, 10);
     console.log(typeof quantity);
 
     let error_tournamentsQuantity = document.querySelector(".error_quantity");
-    let result = false;
+    let result ;
 
     if (isNaN(toNumber) || toNumber % 1 != 0 || quantity == null) {
       error_tournamentsQuantity.style.display = "block";
+      result = false;
     } else {
       error_tournamentsQuantity.style.display = "none";
       result = true;
@@ -142,19 +175,23 @@ function form_check() {
   if (ValidateQuantity(tournamentsQuantity.value)) {
     console.log("Number is valid.");
     error_tournamentsQuantity.style.display = "none";
+    console.log("Border is black.")
+    tournamentsQuantity.style.border = "1px solid black";
   } else {
     console.log("Number is invalid.");
     error_tournamentsQuantity.style.display = "block";
+    console.log("Border is red.")
+    tournamentsQuantity.style.border = "2px solid red";
     valeur = false;
   }
 
-  //villes
+  // Villes -> un seul bouton radio doit être sélectionné
   const towns = document.querySelectorAll('input[name="location"]');
   let error_town = document.querySelector(".error_town");
 
   function townCheck (t) {
     let result = true;
-    for (var i = 0; i < t.length; i++) {
+    for (let i = 0; i < t.length; i++) {
       if (t[i].checked) {
         result = true;
         break;
@@ -172,10 +209,9 @@ function form_check() {
     valeur = false;
   }
 
-  //conditions à remplir
+  // Checkbox "conditions" doit être cochée
   let conditions = document.getElementById("checkbox1");
   let error_conditions = document.querySelector(".error_conditions");
-  
   
   if (conditions.checked) {
     console.log("Conditions are valid.");
@@ -189,7 +225,19 @@ function form_check() {
   return valeur;
 }
 
-//Soumission du formulaire et validation #4
+
+// Soumission du formulaire et validation #4
+
+/* Une fonction "form_validate" est définie. 
+      SI la fonction "form_check" est vraie, 
+      ALORS faire apparaître la div "confirm_submit",
+            faire disparaître le formulaire,
+            faire apparaître le bouton "fermer",
+            déclencher l'évnt "fermeture de la modale" lorsqu'on clique sur le bouton "fermer".*/
+
+/* Une variable "form_submit" est définie.
+      Lorsque l'utilisateur clique sur le bouton "c'est parti" pour soumettre son formulaire,
+      un évnt est déclenché qui exécute la fonction "form_validate". */
 
 let form_submit = document.querySelector(".btn-submit");
 form_submit.addEventListener("click", form_validate);
