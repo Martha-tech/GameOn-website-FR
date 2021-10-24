@@ -54,14 +54,14 @@ function form_check() {
   let error_firstname = document.querySelector(".error_first");
 
   if (firstname.value.length >= 2) {
-    console.log("First name is valid.");
+    // console.log("First name is valid.");
     error_firstname.style.display = "none";
-    console.log("Border is black.")
+    // console.log("Border is black.")
     firstname.style.border = "1px solid black";
   } else {
-    console.log("First name is invalid.");
+    // console.log("First name is invalid.");
     error_firstname.style.display = "block";
-    console.log("Border is red.")
+    // console.log("Border is red.")
     firstname.style.border = "2px solid red";
     valeur = false;
   }
@@ -71,14 +71,14 @@ function form_check() {
   let error_lastname = document.querySelector(".error_last");
 
   if (lastname.value.length >= 2) {
-    console.log("Last name is valid.");
+    // console.log("Last name is valid.");
     error_lastname.style.display = "none";
-    console.log("Border is black.")
+    // console.log("Border is black.")
     lastname.style.border = "1px solid black";
   } else {
-    console.log("Last name is invalid.");
+    // console.log("Last name is invalid.");
     error_lastname.style.display = "block";
-    console.log("Border is red.")
+    // console.log("Border is red.")
     lastname.style.border = "2px solid red";
     valeur = false;
   }
@@ -91,19 +91,19 @@ function form_check() {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(str)) {
       return (true);
     }
-    console.log("Vous avez entré une adresse électronique invalide.");
+    // console.log("Vous avez entré une adresse électronique invalide.");
     return (false);
   }
 
   if (ValidateEmail(emailAddress.value)) {
-    console.log("Email adress is valid.");
+    // console.log("Email adress is valid.");
     error_emailAddress.style.display = "none";
-    console.log("Border is black.")
+    // console.log("Border is black.")
     emailAddress.style.border = "1px solid black";
   } else {
-    console.log("Email adress is invalid.");
+    // console.log("Email adress is invalid.");
     error_emailAddress.style.display = "block";
-    console.log("Border is red.")
+    // console.log("Border is red.")
     emailAddress.style.border = "2px solid red";
 
     valeur = false;
@@ -111,7 +111,7 @@ function form_check() {
 
   // date de naissance -> le participant doit avoir au moins 18 ans
   function ValidateBirthdate(birthdate) {
-    console.log(birthdate);
+    // console.log(birthdate);
     let error_birthdate = document.querySelector(".error_birthdate");
     let regexVar = /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/;
     let regexVarTest = regexVar.test(birthdate);
@@ -139,14 +139,14 @@ function form_check() {
   let error_birthdate = document.querySelector(".error_birthdate");
 
   if (ValidateBirthdate(birthDate.value)) {
-    console.log("Birthdate is valid.");
+    // console.log("Birthdate is valid.");
     error_birthdate.style.display = "none";
-    console.log("Border is black.")
+    // console.log("Border is black.")
     birthDate.style.border = "1px solid black";
   } else {
-    console.log("Birthdate is invalid.");
+    // console.log("Birthdate is invalid.");
     error_birthdate.style.display = "block";
-    console.log("Border is red.")
+    // console.log("Border is red.")
     birthDate.style.border = "2px solid red";
     valeur = false;
   }
@@ -154,7 +154,7 @@ function form_check() {
   // Nombre de tournois -> ce doit être un nombre entier et le champ ne peut pas être laissé vide
   function ValidateQuantity(quantity) {
     let toNumber = parseInt(quantity, 10);
-    console.log(typeof quantity);
+    // console.log(typeof quantity);
 
     let result ;
 
@@ -170,14 +170,14 @@ function form_check() {
   let error_tournamentsQuantity = document.querySelector(".error_quantity");
 
   if (ValidateQuantity(tournamentsQuantity.value)) {
-    console.log("Number is valid.");
+    // console.log("Number is valid.");
     error_tournamentsQuantity.style.display = "none";
-    console.log("Border is black.")
+    // console.log("Border is black.")
     tournamentsQuantity.style.border = "1px solid black";
   } else {
-    console.log("Number is invalid.");
+    // console.log("Number is invalid.");
     error_tournamentsQuantity.style.display = "block";
-    console.log("Border is red.")
+    // console.log("Border is red.")
     tournamentsQuantity.style.border = "2px solid red";
     valeur = false;
   }
@@ -211,14 +211,14 @@ function form_check() {
   let error_conditions = document.querySelector(".error_conditions");
   
   if (conditions.checked) {
-    console.log("Conditions are valid.");
+    // console.log("Conditions are valid.");
     error_conditions.style.display = "none";
   } else {
-    console.log("Conditions are invalid.");
+    // console.log("Conditions are invalid.");
     error_conditions.style.display = "block";
     valeur = false;
   }
-  console.log(valeur);
+  // console.log(valeur);
   return valeur;
 }
 
