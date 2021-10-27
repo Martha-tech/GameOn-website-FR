@@ -158,7 +158,7 @@ function form_check() {
 
     let result ;
 
-    if (isNaN(toNumber) || toNumber % 1 != 0 || quantity == null) {
+    if (isNaN(toNumber) || quantity % 1 != 0 || quantity == null) {
       result = false;
     } else {
       result = true;
