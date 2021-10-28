@@ -119,9 +119,8 @@ function form_check() {
 
     const todayYear = (new Date()).getFullYear();
     const cutOff18 = new Date();
-    console.log(cutOff18);
+    //console.log(cutOff18);
     cutOff18.setFullYear(todayYear - 18); 
-    console.log(cutOff18);
     const cutOff95 = new Date();
     cutOff95.setFullYear(todayYear - 95);
     let result = false;
@@ -161,13 +160,13 @@ function form_check() {
   function ValidateQuantity(quantity) {
     const toNumber = parseInt(quantity, 10);
     // console.log(typeof quantity);
-    console.log(quantity);
-    console.log(toNumber);
+    //console.log(quantity);
+    //console.log(toNumber);
 
 
     let result;
 
-    if (isNaN(toNumber) || quantity % 1 != 0 || toNumber < 0 || toNumber > 99 || quantity == null) {
+    if (isNaN(toNumber) || quantity % 1 != 0 || quantity < 0 || quantity > 99 || quantity == null) {
       result = false;
     } else {
       result = true;
